@@ -1,0 +1,165 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--
+<div style="text-align:center">
+
+  <h1>
+    {{secondheadre | uppercase}}
+  </h1>
+
+  <h1>
+    {{newcomponent | lowercase}}
+  </h1>
+
+  <h1>
+    {{clender}}
+  </h1>
+
+</div>
+-->
+<!-- Code start for new form -->
+
+<div style="text-align:center">
+
+    <h1>
+      {{regwelcome | uppercase}}
+    </h1>
+</div>  
+<div>
+
+<!-- <div class="ui-inputgroup" >
+    Enter First Name:
+    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+    <input type="text" pInputText placeholder="FirstName" id="firstname" (input)="onFirstName($event)">
+    <p>{{fnameValue}}</p>
+</div> -->
+
+
+  <div class="ui-inputgroup" >
+      
+      <div class="ui-g-12 ui-md-2">Enter First Name</div>
+  
+     <div class="ui-g-12 ui-md-2">
+        <input type="text" pInputText placeholder="FirstName" id="firstname" maxlength="5" [(ngModel)]="fnameValue">
+    </div>
+      <p style="text-transform:uppercase">{{fnameValue}}</p>
+  </div>
+
+<!-- <div class="ui-inputgroup">
+  Enter Last Name:
+  <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+  <input type="text" pInputText placeholder="LastName" id="lastname" (input)="onLastName($event)">
+  <p>{{lnameValue}}</p>
+</div> -->
+
+<div class="ui-inputgroup" >
+      <div class="ui-g-12 ui-md-2">
+          Middle Name
+      </div>
+      
+      <div class="ui-g-12 ui-md-2">
+            <input id="mnameValue" type="text" pInputText placeholder="MiddleName" maxlength="10" pInputText [(ngModel)]="mnameValue"> 
+      </div>
+      <p style="text-transform:uppercase">{{mnameValue}}</p>
+
+</div>
+
+
+<div class="ui-inputgroup">
+  <div class="ui-g-12 ui-md-2"> Enter Last Name </div>
+ 
+  <div class="ui-g-12 ui-md-2">  
+  <input type="text" pInputText placeholder="LastName" id="lastname" maxlength="5" [(ngModel)]="lnameValue">
+</div>
+  <p style="text-transform:uppercase">{{lnameValue}}</p>
+</div>
+
+<!--
+        <div class="ui-g" style="width:250px;margin-bottom:20px">
+          <div class="ui-g-12 ui-md-10">
+        Sex
+          </div>
+          
+              <p-checkbox name="group_male" value="MALE" label="Male" [(ngModel)]="selectedCategories" inputId="male"> </p-checkbox>
+              <p-checkbox name="group_female" value="FEMALE" label="Female" [(ngModel)]="selectedCategories" inputId="female"> </p-checkbox>
+          
+          <div class="ui-g-12 ui-md-2">
+          <span *ngFor="let sex of selectedCategories" style="margin-right:10px">{{sex}} </span>
+          </div>
+      </div>
+-->
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-2"> Sex </div>
+      
+    <div class="ui-g-12 ui-md-1">
+        <div class="ui-g-12"><p-radioButton name="group2" value="MALE" label="Male" [(ngModel)]="selectGender" inputId="preopt1"></p-radioButton></div>
+        <div class="ui-g-12"><p-radioButton name="group2" value="FEMALE" label="Female" [(ngModel)]="selectGender" inputId="preopt2"></p-radioButton></div>
+  </div>
+    <p style="text-transform:uppercase">{{selectGender}}</p>     
+    
+  </div>
+
+
+<!-- <div class="ui-inputgroup">
+  Enter Email ID :
+  <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+  <input type="text" pInputText placeholder="EmailID" id="emialID" (input)="onEmailID($event)">
+  <p>{{emialIDValue}}</p>
+</div> -->
+
+<div class="ui-inputgroup">
+    <div class="ui-g-12 ui-md-2">
+  Enter Email ID 
+  </div>
+  
+  <div class="ui-g-12 ui-md-2">
+  <input type="text" pInputText placeholder="EmailID" id="emialID" maxlength="30" [(ngModel)]="emialIDValue">
+</div>
+  <p style="text-transform:uppercase">{{emialIDValue}}</p>
+</div>
+
+
+<div class="ui-inputgroup">
+  <div class="ui-g-12 ui-md-2">
+  Subject 
+  </div>
+  <div class="ui-g-12 ui-md-2">
+  <input type="text" pInputText placeholder="Subject" id="subject" maxlength="20" [(ngModel)]="subjectValue" >
+  </div>
+  <p style="text-transform:uppercase">{{subjectValue}}</p>
+</div>
+
+<!-- <div class="ui-g-12 ui-md-4">
+  Select DOB:
+  <p-calendar [(ngModel)]="date1">(input)="onDOB($event)" </p-calendar>
+  <p>{{dobValue}}</p>
+</div> -->
+
+<div class="ui-g-12 ui-md-12">
+    <div class="ui-g-12 ui-md-2">Select DOB</div>
+    <div class="ui-g-12 ui-md-2">
+       <p-calendar [(ngModel)]="dobValue"> </p-calendar>
+    </div>
+  <p style="text-transform:uppercase">{{dobValue}}</p>
+</div>
+
+
+<div class="ui-g-12 ui-md-8">
+    <div class="ui-g-12 ui-md-3">Select Country</div>
+    <div class="ui-g-12 ui-md-3">      
+      <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" optionLabel="name"></p-dropdown>
+    </div>
+    <p>{{selectedCity2}}</p>
+</div>
+
+    <div class="ui-g-12 ui-md-5" style="text-align: center;">
+          <button pButton (click)="myformSubmitFunction()" type="button" label="Submit" class="ui-button-rounded"></button>
+    </div>
+    <br>
+          <div class="ui-g-12 ui-md-5">
+              <p *ngIf="mycheck; else noServer">{{buttonClickedStatus}}</p>  
+                  <ng-template #noServer>{{valueError}}</ng-template>
+          </div>    
+      
+
+</div>
